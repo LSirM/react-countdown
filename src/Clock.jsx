@@ -29,13 +29,17 @@ class Clock extends Component{
     this.setState({days: days, hours: hours, minutes: minutes, seconds: secs})
   }
 
+  leadingZero(num){
+    return num < 10 ? '0' + num : num;
+  }
+
   render(){
     return(
       <div>
-        <div className="clock-days">{this.state.days} days</div>
-        <div className="clock-hours">{this.state.hours} hours</div>
-        <div className="clock-minutes">{this.state.minutes} minutes</div>
-        <div className="clock-seconds">{this.state.seconds} seconds</div>
+        <div className="clock-days">{this.leadingZero(this.state.days)} days</div>
+        <div className="clock-hours">{this.leadingZero(this.state.hours)} hours</div>
+        <div className="clock-minutes">{this.leadingZero(this.state.minutes)} minutes</div>
+        <div className="clock-seconds">{this.leadingZero(this.state.seconds)} seconds</div>
     </div>
     )
   }
